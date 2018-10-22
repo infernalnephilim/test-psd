@@ -1,0 +1,76 @@
+$logo-color: #ed1651;
+$logo-font-color: #fff;
+
+$button-color: #ed1651;
+$button-shadow-color: #f05a69;
+$button-hover-color: #0a2b3f;
+$button-hover-shadow-color: #145b86;
+$button-font-color: #fff;
+$button-border-radius: 4px;
+
+@mixin transition($property, $type, $time) {
+  -webkit-transition: $property $type $time;
+  -moz-transition: $property $type $time;
+  -ms-transition: $property $type $time;
+  -o-transition: $property $type $time;
+  transition: $property $type $time;
+}
+
+@font-face {
+  font-family: "Lato Black";
+  src:url("../fonts/Lato-Black.ttf");
+}
+@font-face {
+  font-family: "Lato";
+  src:url("../fonts/Lato-Regular.ttf");
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input{
+  @include transition(outline, ease, .5s);
+  &:focus{
+    outline-color: #0a2b3f;
+  }
+}
+
+
+.logo {
+  background: $logo-color;
+  color: $logo-font-color;
+  padding: 20px;
+  width: 310px;
+  max-width: 100%;
+  &__text {
+    font-size: 3rem;
+  }
+}
+
+.button {
+  font-family: "Arial Black", sans-serif;
+  padding: 2px 20px;
+  border: none;
+  border-radius: $button-border-radius;
+  font-size: 1.5rem;
+  color: $button-font-color;
+  @include transition(opacity, ease, .5s);
+  background: $button-color; /* Old browsers */
+  background: -moz-linear-gradient(top, $button-shadow-color 49%, $button-color 51%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, $button-shadow-color 49%, $button-color 51%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, $button-shadow-color 49%, $button-color 51%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$button-shadow-color, endColorstr=$button-color, GradientType=0); /* IE6-9 */
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  &:active, &:focus{
+    outline-color: $button-shadow-color;
+  }
+}

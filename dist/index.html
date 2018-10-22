@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+<section class="contact">
+    <div class="contact__column contact__column--left">
+        <div class="contact__content-wrapper contact__content-wrapper--call-us">
+            <div class="logo">
+                <span class="logo__text">Logo</span>
+            </div>
+            <div class="contact__content">
+                <div class="contact__details">
+                    <h2>Zadzwoń już teraz</h2>
+                    <p>+48 696 696 696</p>
+                    <p>+48 696 696 696</p>
+                    <h2>English? Call us</h2>
+                    <p>+48 696 696 696</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact__column contact__column--right">
+        <div class="contact__content-wrapper contact__content-wrapper--email-us">
+            <div class="contact__content">
+                <h2>Umów się na spotkanie</h2>
+                <form id="contact-form" class="contact__form form">
+                    <div class="form__row">
+                        <input type="text" name="name" placeholder="Imię" required>
+                        <div class="form__input-invalid">ERROR</div>
+                    </div>
+                    <div class="form__row">
+                        <input type="text" name="surname" placeholder="Nazwisko" required>
+                    </div>
+                    <div class="form__row">
+                        <input type="tel" name="telephone" placeholder="Telefon" required>
+                        <div class="form__input-invalid">HTML5 nie waliduje tego</div>
+                    </div>
+                    <div class="form__row">
+                        <input type="email" name="email" placeholder="E-Mail" required>
+                    </div>
+                    <div class="form__row">
+                        <label class="form__checkbox custom-checkbox">
+                            <input type="checkbox" name="agree" value="Agreed" required>
+                            <span class="custom-checkbox__checkmark"></span>
+                            <div class="custom-checkbox__text">
+                                Wyrażam zgodę na przetwarzanie moich danych osobowych. Zapoznaj się z regulaminem.
+                            </div>
+                        </label>
+                    </div>
+                    <div class="form__row--button-wrapper">
+                        <button id="contact-submit" class="form__button button">Wyślij</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="js/script.min.js"></script>
+<script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

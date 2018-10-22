@@ -1,0 +1,185 @@
+$decoration-color: #ed1651;
+$decoration-color-2: #f05a69;
+
+$bg-color: #0a2b3f;
+$font-color-left-col: #fff;
+$font-color-right-col: #000;
+
+$input-border-radius: 4px;
+$input-font-color: #6b6b6b;
+$valid-input-color: #24ac6a;
+$invalid-input-color: #ed1651;
+
+$col-padding: 20px;
+$col-inner-padding: 40px;
+$left-col-width: 450px;
+$right-col-width: 400px;
+
+$col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-inner-padding * 2;
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  align-items: stretch;
+  @media screen and (min-width: $col-breakpoint) {
+    flex-direction: row;
+  }
+  h2 {
+    font-weight: normal;
+    font-size: 36px;
+  }
+  &__column {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: $col-padding;
+    @media screen and (min-width: $col-breakpoint) {
+      width: 50%;
+    }
+    &--left {
+      background: $bg-color;
+      color: $font-color-left-col;
+      justify-content: flex-end;
+      @media screen and (min-width: $col-breakpoint) {
+        padding-right: $col-inner-padding;
+      }
+    }
+    &--right {
+      justify-content: flex-start;
+      @media screen and (min-width: $col-breakpoint) {
+        padding-left: $col-inner-padding;
+      }
+    }
+  }
+  &__content-wrapper {
+    width: 100%;
+    max-width: 100%;
+    &--call-us {
+      @media screen and (min-width: $col-breakpoint) {
+        width: $left-col-width;
+      }
+    }
+    &--email-us {
+      @media screen and (min-width: $col-breakpoint) {
+        width: $right-col-width;
+      }
+    }
+  }
+  &__content {
+    h2 {
+      margin: 20px 0px;
+    }
+  }
+  &__details {
+    margin: 20px 0px;
+    p {
+      font-size: 3rem;
+      margin: 10px 0px;
+    }
+
+  }
+  &__form {
+
+  }
+  .form {
+    position: relative;
+    &__button {
+      position: relative;
+    }
+    &__row {
+      margin: 20px 0px;
+      &--button-wrapper {
+        text-align: right;
+      }
+      input:not([type='checkbox']) {
+        width: 100%;
+        padding: 10px 20px;
+        border: 1px solid #eee;
+        border-radius: $input-border-radius;
+      }
+
+    }
+    &__message {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 20px 0px;
+    }
+  }
+}
+
+.invalid {
+  outline-color: $decoration-color;
+  background: url("../img/invalidinput.png") no-repeat center right;
+  -webkit-background-size: 20px 20px;
+  background-size: 20px 20px;
+  &:focus {
+    outline-color: $decoration-color;
+  }
+}
+
+.valid {
+  outline-color: $valid-input-color;
+  background: url("../img/validinput.png") no-repeat center right;
+  -webkit-background-size: 20px 20px;
+  background-size: 20px 20px;
+  &:focus {
+    outline-color: $valid-input-color;
+  }
+}
+
+.custom-checkbox {
+  $size: 25px;
+  position: relative;
+  &:hover {
+    cursor: pointer;
+    input ~ .custom-checkbox__checkmark {
+      background-color: #eee;
+    }
+  }
+  input:checked ~ .custom-checkbox__checkmark {
+    //background: $decoration-color-2;
+  }
+  input:checked ~ .custom-checkbox__checkmark:after {
+    display: block;
+  }
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  &__checkmark {
+    position: absolute;
+    left: 0;
+    width: $size;
+    height: $size;
+    border: 1px solid #eee;
+    border-radius: $input-border-radius;
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 7px;
+      top: 3px;
+      width: 5px;
+      height: 10px;
+      border: solid $decoration-color;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+  &__text {
+    margin-left: $size;
+    font-size: 0.6rem;
+    color: $input-font-color;
+    padding: 2px 10px;
+  }
+
+}
+
