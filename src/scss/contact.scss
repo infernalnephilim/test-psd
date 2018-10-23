@@ -22,7 +22,7 @@ $col-breakpoint-sm: 576px;
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100vh; // do usunięcia, jeśli to nie podstrona
   align-items: stretch;
   @media screen and (min-width: $col-breakpoint){
     flex-direction: row;
