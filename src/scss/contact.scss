@@ -150,13 +150,25 @@ $col-breakpoint-sm: 576px;
       }
     }
     &__message {
+      display: none;
       position: absolute;
-      top: 0;
+      top: 20%;
       left: 0;
+      opacity: 0;
+      width: 100%;
+      border-radius: $input-border-radius;
       margin: 20px 0px;
+      background: $valid-input-color;
+      color: #fff;
+      padding: 20px;
+      -webkit-animation: 6s ease-in-out changeOpacity;
+      -o-animation: 6s ease-in-out changeOpacity;
+      animation: 6s ease-in-out changeOpacity;
     }
   }
 }
+
+
 
 .invalid {
   outline-color: $decoration-color;
@@ -232,6 +244,20 @@ $col-breakpoint-sm: 576px;
 
 }
 
+@keyframes changeOpacity {
+  0%{
+    opacity: 0;
+  }
+  20%{
+    opacity: 1;
+  }
+  80%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;

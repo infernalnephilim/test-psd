@@ -7,27 +7,36 @@ $(document).ready(function () {
 
     $('#contact-submit').on('click', function (e) {
         e.preventDefault();
-        console.log("Kliknales przycisk");
-        const $form = $(".contact__form")[0];
+        const $form = $('#contact-form')[0];
 
         if ($form.checkValidity() && $('.contact__form input[type="tel"]').hasClass("valid")) {
             console.log("POPRAWNE");
-            const name = $('.contact__form input[name="name"]').val();
-            const surname = $('.contact__form input[name="surname"]').val();
-            const telephone = $('.contact__form input[name="telephone"]').val();
-            const email = $('.contact__form input[name="email"]').val();
+            const name = $('#contact-form input[name="name"]').val();
+            const surname = $('#contact-form input[name="surname"]').val();
+            const telephone = $('#contact-form input[name="telephone"]').val();
+            const email = $('#contact-form input[name="email"]').val();
+            console.log(name);
+            console.log(surname);
+            console.log(telephone);
             console.log(email);
             $.post("send.php", {
-                name: name,
-                surname: surname,
-                telephone: telephone,
-                email: email
+                nameV: name,
+                surnameV: surname,
+                telephoneV: telephone,
+                emailV: email
             }, function (data) {
-                $('#contact-form').reset();
+                $('#contact-form')[0].reset();
+                $('#contact-form input').each(function () {
+                    const thisInput = $(this);
+                    thisInput.removeClass("valid");
+                });
+                $('.form__message').css("display", "block");
+                setTimeout(function(){
+                    $('.form__message').css("display", "none");
+                }, 6000);
             });
 
         } else {
-            console.log("niepoprawne");
             $("#contact-form input").each(function () {
                 const thisInput = $(this);
                 checkData(thisInput, thisInput.val());
