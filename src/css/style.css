@@ -12,7 +12,17 @@
 }
 .contact h2 {
   font-weight: normal;
-  font-size: 36px;
+  font-size: 1.5rem;
+}
+@media screen and (min-width: 576px) {
+  .contact h2 {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (min-width: 970px) {
+  .contact h2 {
+    font-size: 2.25rem;
+  }
 }
 .contact__column {
   display: flex;
@@ -65,10 +75,21 @@
 }
 .contact__details {
   margin: 20px 0px;
+  text-align: center;
+}
+@media screen and (min-width: 970px) {
+  .contact__details {
+    text-align: left;
+  }
 }
 .contact__details p {
   font-size: 2rem;
   margin: 10px 0px;
+}
+@media screen and (min-width: 576px) {
+  .contact__details p {
+    font-size: 2.5rem;
+  }
 }
 @media screen and (min-width: 970px) {
   .contact__details p {

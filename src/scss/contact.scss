@@ -16,6 +16,7 @@ $left-col-width: 450px;
 $right-col-width: 400px;
 
 $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-inner-padding * 2;
+$col-breakpoint-sm: 576px;
 
 .contact {
   display: flex;
@@ -28,7 +29,13 @@ $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-in
   }
   h2 {
     font-weight: normal;
-    font-size: 36px;
+    font-size: 1.5rem;
+    @media screen and (min-width: $col-breakpoint-sm) {
+      font-size: 1.8rem;
+    }
+    @media screen and (min-width: $col-breakpoint) {
+      font-size: 2.25rem;
+    }
   }
   &__column {
     display: flex;
@@ -77,9 +84,16 @@ $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-in
   }
   &__details {
     margin: 20px 0px;
+    text-align: center;
+    @media screen and (min-width: $col-breakpoint) {
+      text-align: left;
+    }
     p {
       font-size: 2rem;
       margin: 10px 0px;
+      @media screen and (min-width: $col-breakpoint-sm) {
+        font-size: 2.5rem;
+      }
       @media screen and (min-width: $col-breakpoint) {
         font-size: 3rem;
       }
