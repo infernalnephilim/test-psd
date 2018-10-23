@@ -31,19 +31,19 @@
                 <form id="contact-form" class="contact__form form">
                     <div class="form__row">
                         <input type="text" name="name" placeholder="Imię" autocomplete="off" required>
-                        <div class="form__input-invalid">ERROR</div>
+                        <div class="form__input-invalid">To pole nie może być puste</div>
                     </div>
                     <div class="form__row">
                         <input type="text" name="surname" placeholder="Nazwisko" autocomplete="off" required>
-                        <div class="form__input-invalid">ERROR</div>
+                        <div class="form__input-invalid">To pole nie może być puste</div>
                     </div>
                     <div class="form__row">
                         <input type="tel" name="telephone" placeholder="Telefon" autocomplete="off" required>
-                        <div class="form__input-invalid">HTML5 nie waliduje tego</div>
+                        <div class="form__input-invalid">Wpisz poprawny numer telefonu</div>
                     </div>
                     <div class="form__row">
                         <input type="email" name="email" placeholder="E-Mail" autocomplete="off" required>
-                        <div class="form__input-invalid">ERROR</div>
+                        <div class="form__input-invalid">Wpisz poprawny E-Mail</div>
                     </div>
                     <div class="form__row">
                         <label class="form__checkbox custom-checkbox">
@@ -53,8 +53,9 @@
                                 Wyrażam zgodę na przetwarzanie moich danych osobowych. Zapoznaj się z regulaminem.
                             </span>
                         </label>
+                        <div class="form__input-invalid form__input-invalid--checkbox">Musisz wyrazić zgodę na przetwarzanie Twoich danych osobowych.</div>
                     </div>
-                    <div class="form__row--button-wrapper">
+                    <div class="form__row form__row--button-wrapper">
                         <button id="contact-submit" class="form__button button">Wyślij</button>
                     </div>
                 </form>

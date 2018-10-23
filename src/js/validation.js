@@ -2,32 +2,7 @@ $(document).ready(function () {
     $('.contact__form input').on('keyup paste autocomplete change', function (e) {
         const $this = $(e.currentTarget);
         const text = $this.val();
-
-        if ($this.attr("type") === "text") {
-            if (text === '') {
-                addInvalidClass($this);
-            } else {
-                addValidClass($this);
-                hideInputInvalidMessage($this);
-            }
-        } else if ($this.attr("type") === "email") {
-            const mailRegExp = /^[0-9a-z_.-]+@[0-9a-z.-]+\.[a-z]{2,3}$/i;
-            if (!mailRegExp.test(text)) {
-                addInvalidClass($this);
-            } else {
-                addValidClass($this);
-                hideInputInvalidMessage($this);
-            }
-        } else if ($this.attr("type") === "tel") {
-            const phoneRegExp = /^\+?[0-9]{3}-?[0-9]{6,12}$/;
-            if (!phoneRegExp.test(text)) {
-                addInvalidClass($this);
-            } else {
-                addValidClass($this);
-                hideInputInvalidMessage($this);
-            }
-        }
-
+        checkData($this, text);
     });
 
     $('#contact-submit').on('click', function (e) {
@@ -35,12 +10,18 @@ $(document).ready(function () {
         console.log("Kliknales przycisk");
         const $form = $(".contact__form")[0];
 
-        if ($form.checkValidity()) {
+        if ($form.checkValidity() && $('.contact__form input[type="tel"]').hasClass("valid")) {
             console.log("POPRAWNE");
+            const name = $('.contact__form input[name="name"]').val();
+            const surname = $('.contact__form input[name="surname"]').val();
+            const telephone = $('.contact__form input[name="telephone"]').val();
+            const email = $('.contact__form input[name="email"]').val();
+            console.log(email);
             $.post("send.php", {
-                // nameV: name,
-                // emailV: email,
-                // textV: text
+                name: name,
+                surname: surname,
+                telephone: telephone,
+                email: email
             }, function (data) {
                 $('#contact-form').reset();
             });
@@ -49,15 +30,47 @@ $(document).ready(function () {
             console.log("niepoprawne");
             $("#contact-form input").each(function () {
                 const thisInput = $(this);
+                checkData(thisInput, thisInput.val());
                 if (thisInput.hasClass("invalid")) {
                     showInputInvalidMessage(thisInput);
                 }
             });
-
         }
     });
-
 });
+
+function checkData(thisInput, text){
+    if (thisInput.attr("type") === "text") {
+        if (text === '') {
+            addInvalidClass(thisInput);
+        } else {
+            addValidClass(thisInput);
+            hideInputInvalidMessage(thisInput);
+        }
+    } else if (thisInput.attr("type") === "email") {
+        const mailRegExp = /^[0-9a-z_.-]+@[0-9a-z.-]+\.[a-z]{2,3}$/i;
+        if (!mailRegExp.test(text)) {
+            addInvalidClass(thisInput);
+        } else {
+            addValidClass(thisInput);
+            hideInputInvalidMessage(thisInput);
+        }
+    } else if (thisInput.attr("type") === "tel") {
+        const phoneRegExp = /^\+?[0-9]{3}-?[0-9]{6,12}$/;
+        if (!phoneRegExp.test(text)) {
+            addInvalidClass(thisInput);
+        } else {
+            addValidClass(thisInput);
+            hideInputInvalidMessage(thisInput);
+        }
+    } else if(thisInput.attr("type") === "checkbox"){
+        if(thisInput.is(':checked')) {
+            $(".form__input-invalid--checkbox").css("display", "none");
+        } else{
+            $(".form__input-invalid--checkbox").css("display", "block");
+        }
+    }
+}
 
 function addInvalidClass(obj) {
     obj.addClass("invalid");
