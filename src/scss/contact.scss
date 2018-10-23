@@ -16,7 +16,6 @@ $left-col-width: 450px;
 $right-col-width: 400px;
 
 $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-inner-padding * 2;
-$col-breakpoint-device: 800px;
 
 .contact {
   display: flex;
@@ -24,7 +23,7 @@ $col-breakpoint-device: 800px;
   width: 100%;
   min-height: 100vh;
   align-items: stretch;
-  @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device) {
+  @media screen and (min-width: $col-breakpoint){
     flex-direction: row;
   }
   h2 {
@@ -37,19 +36,19 @@ $col-breakpoint-device: 800px;
     width: 100%;
     padding: $col-padding;
     justify-content: center;
-    @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device){
+    @media screen and (min-width: $col-breakpoint){
       width: 50%;
     }
     &--left {
       background: $bg-color;
       color: $font-color-left-col;
-      @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device){
+      @media screen and (min-width: $col-breakpoint) {
         padding-right: $col-inner-padding;
         justify-content: flex-end;
       }
     }
     &--right {
-      @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device){
+      @media screen and (min-width: $col-breakpoint) {
         padding-left: $col-inner-padding;
         justify-content: flex-start;
       }
@@ -59,12 +58,12 @@ $col-breakpoint-device: 800px;
     width: 100%;
     max-width: 100%;
     &--call-us {
-      @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device) {
+      @media screen and (min-width: $col-breakpoint)  {
         width: $left-col-width;
       }
     }
     &--email-us {
-      @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device) {
+      @media screen and (min-width: $col-breakpoint) {
         width: $right-col-width;
       }
     }

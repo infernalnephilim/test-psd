@@ -5,7 +5,7 @@
   min-height: 100vh;
   align-items: stretch;
 }
-@media screen and (min-width: 970px) and (min-device-width: 800px) {
+@media screen and (min-width: 970px) {
   .contact {
     flex-direction: row;
   }
@@ -21,7 +21,7 @@
   padding: 20px;
   justify-content: center;
 }
-@media screen and (min-width: 970px) and (min-device-width: 800px) {
+@media screen and (min-width: 970px) {
   .contact__column {
     width: 50%;
   }
@@ -30,13 +30,13 @@
   background: #0a2b3f;
   color: #fff;
 }
-@media screen and (min-width: 970px) and (min-device-width: 800px) {
+@media screen and (min-width: 970px) {
   .contact__column--left {
     padding-right: 40px;
     justify-content: flex-end;
   }
 }
-@media screen and (min-width: 970px) and (min-device-width: 800px) {
+@media screen and (min-width: 970px) {
   .contact__column--right {
     padding-left: 40px;
     justify-content: flex-start;
@@ -46,12 +46,12 @@
   width: 100%;
   max-width: 100%;
 }
-@media screen and (min-width: 970px) and (min-device-width: 800px) {
+@media screen and (min-width: 970px) {
   .contact__content-wrapper--call-us {
     width: 450px;
   }
 }
-@media screen and (min-width: 970px) and (min-device-width: 800px) {
+@media screen and (min-width: 970px) {
   .contact__content-wrapper--email-us {
     width: 400px;
   }
