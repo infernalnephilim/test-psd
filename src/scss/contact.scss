@@ -16,6 +16,7 @@ $left-col-width: 450px;
 $right-col-width: 400px;
 
 $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-inner-padding * 2;
+$col-breakpoint-device: 800px;
 
 .contact {
   display: flex;
@@ -23,7 +24,7 @@ $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-in
   width: 100%;
   min-height: 100vh;
   align-items: stretch;
-  @media screen and (min-width: $col-breakpoint) {
+  @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device) {
     flex-direction: row;
   }
   h2 {
@@ -35,21 +36,22 @@ $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-in
     align-items: center;
     width: 100%;
     padding: $col-padding;
-    @media screen and (min-width: $col-breakpoint) {
+    justify-content: center;
+    @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device){
       width: 50%;
     }
     &--left {
       background: $bg-color;
       color: $font-color-left-col;
-      justify-content: flex-end;
-      @media screen and (min-width: $col-breakpoint) {
+      @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device){
         padding-right: $col-inner-padding;
+        justify-content: flex-end;
       }
     }
     &--right {
-      justify-content: flex-start;
-      @media screen and (min-width: $col-breakpoint) {
+      @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device){
         padding-left: $col-inner-padding;
+        justify-content: flex-start;
       }
     }
   }
@@ -57,17 +59,19 @@ $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-in
     width: 100%;
     max-width: 100%;
     &--call-us {
-      @media screen and (min-width: $col-breakpoint) {
+      @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device) {
         width: $left-col-width;
       }
     }
     &--email-us {
-      @media screen and (min-width: $col-breakpoint) {
+      @media screen and (min-width: $col-breakpoint) and (min-device-width: $col-breakpoint-device) {
         width: $right-col-width;
       }
     }
   }
   &__content {
+    width: 100%;
+    max-width: 100%;
     h2 {
       margin: 20px 0px;
     }
@@ -81,7 +85,7 @@ $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-in
 
   }
   &__form {
-
+  width: 100%;
   }
   .form {
     position: relative;
