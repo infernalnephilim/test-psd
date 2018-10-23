@@ -80,6 +80,7 @@
   position: relative;
 }
 .contact .form__row {
+  position: relative;
   margin: 20px 0px;
 }
 .contact .form__row--button-wrapper {
@@ -90,6 +91,32 @@
   padding: 10px 20px;
   border: 1px solid #eee;
   border-radius: 4px;
+}
+.contact .form__input-invalid {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 80%;
+  max-width: 100%;
+  background: #ed1651;
+  border: 1px solid #ed1651;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: .7rem;
+  border-radius: 4px;
+  z-index: 10;
+  animation: .3s ease-out 0s 1 fadeIn;
+}
+.contact .form__input-invalid::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #ed1651;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  top: -10px;
 }
 .contact .form__message {
   position: absolute;
@@ -160,10 +187,94 @@
   transform: rotate(45deg);
 }
 .custom-checkbox__text {
+  display: block;
   margin-left: 25px;
   font-size: 0.6rem;
   color: #6b6b6b;
   padding: 2px 10px;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /*# sourceMappingURL=contact.css.map */
+
+@font-face {
+  font-family: "Lato Black";
+  src: url("../fonts/Lato-Black.ttf");
+}
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Regular.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input {
+  -webkit-transition: outline ease 0.5s;
+  -moz-transition: outline ease 0.5s;
+  -ms-transition: outline ease 0.5s;
+  -o-transition: outline ease 0.5s;
+  transition: outline ease 0.5s;
+}
+input:focus {
+  outline-color: #0a2b3f;
+}
+
+.logo {
+  background: #ed1651;
+  color: #fff;
+  padding: 20px;
+  width: 310px;
+  max-width: 100%;
+}
+.logo__text {
+  font-size: 3rem;
+}
+
+.button {
+  font-family: "Arial Black", sans-serif;
+  padding: 2px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  color: #fff;
+  -webkit-transition: opacity ease 0.5s;
+  -moz-transition: opacity ease 0.5s;
+  -ms-transition: opacity ease 0.5s;
+  -o-transition: opacity ease 0.5s;
+  transition: opacity ease 0.5s;
+  background: #ed1651;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #f05a69 49%, #ed1651 51%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f05a69 49%, #ed1651 51%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f05a69 49%, #ed1651 51%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$button-shadow-color, endColorstr=$button-color, GradientType=0);
+  /* IE6-9 */
+}
+.button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.button:active, .button:focus {
+  outline-color: #f05a69;
+}
+
+/*# sourceMappingURL=index.css.map */

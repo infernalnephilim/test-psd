@@ -92,6 +92,7 @@ $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-in
       position: relative;
     }
     &__row {
+      position: relative;
       margin: 20px 0px;
       &--button-wrapper {
         text-align: right;
@@ -103,6 +104,33 @@ $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-in
         border-radius: $input-border-radius;
       }
 
+    }
+    &__input-invalid{
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 80%;
+      max-width: 100%;
+      background: $decoration-color;
+      border: 1px solid $decoration-color;
+      color: #fff;
+      padding: 5px 10px;
+      font-size: .7rem;
+      border-radius: $input-border-radius;
+      z-index: 10;
+      animation: .3s ease-out 0s 1 fadeIn;
+      &::before{
+        $size: 10px;
+        content: '';
+        width: 0;
+        height: 0;
+        border-bottom: $size solid $decoration-color;
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        position: absolute;
+        top: -$size
+      }
     }
     &__message {
       position: absolute;
@@ -178,6 +206,7 @@ $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-in
     }
   }
   &__text {
+    display: block;
     margin-left: $size;
     font-size: 0.6rem;
     color: $input-font-color;
@@ -186,3 +215,13 @@ $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-in
 
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -25,7 +25,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: 'src/scss',
                     src: '**/*.scss',
-                    dest: 'dist/css',
+                    dest: 'src/scss',
                     ext: '.css'
                 }],
                 options: {
@@ -37,7 +37,7 @@ module.exports = function (grunt) {
             target: {
                 files: [{
                     expand: true,
-                    cwd: 'dist/css',
+                    cwd: 'src/css',
                     src: ['*.css', '!*.min.css'],
                     dest: 'dist/css',
                     ext: '.min.css'
@@ -45,9 +45,15 @@ module.exports = function (grunt) {
             }
         },
         concat: {
-            dist: {
+            js: {
                 src: ['src/js/*.js'],
                 dest: 'dist/js/script.js'
+            },
+            css: {
+                src: [
+                    'src/scss/*.css'
+                ],
+                dest: 'src/css/style.css'
             }
         },
         uglify: {
@@ -69,8 +75,8 @@ module.exports = function (grunt) {
         },
         watch: {
             livereload: {
-                options: { livereload: true },
-                files: ['dist/**/*'],
+                options: {livereload: true},
+                files: ['dist/**/*']
             },
             html: {
                 files: 'src/**/*.html',
@@ -78,7 +84,7 @@ module.exports = function (grunt) {
             },
             css: {
                 files: 'src/scss/**/*.scss',
-                tasks: ['sass', 'cssmin']
+                tasks: ['sass', 'concat', 'cssmin']
             },
             scripts: {
                 files: 'src/js/**/*.js',
@@ -87,7 +93,7 @@ module.exports = function (grunt) {
             images: {
                 files: 'scr/img/**/*.{png,gif,jpg}',
                 tasks: ['imagemin']
-            },
+            }
         },
         connect: {
             server: {
@@ -97,7 +103,7 @@ module.exports = function (grunt) {
                     hostname: '0.0.0.0',
                     protocol: 'http',
                     livereload: true,
-                    open: true,
+                    open: true
                 }
             }
         },
@@ -106,7 +112,7 @@ module.exports = function (grunt) {
                 expand: true,
                 cwd: 'src/fonts/',
                 src: '**',
-                dest: 'dist/fonts/',
+                dest: 'dist/fonts/'
             }
         }
 
@@ -121,5 +127,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['htmlmin', 'sass', 'cssmin', 'concat', 'uglify', 'imagemin', 'copy', 'connect', 'watch']);
+    grunt.registerTask('default', ['htmlmin', 'sass', 'concat', 'cssmin', 'uglify', 'imagemin', 'copy', 'connect', 'watch']);
 };
