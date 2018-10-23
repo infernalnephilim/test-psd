@@ -78,8 +78,11 @@ $col-breakpoint: $left-col-width + $right-col-width + $col-padding * 2 + $col-in
   &__details {
     margin: 20px 0px;
     p {
-      font-size: 3rem;
+      font-size: 2rem;
       margin: 10px 0px;
+      @media screen and (min-width: $col-breakpoint) {
+        font-size: 3rem;
+      }
     }
 
   }

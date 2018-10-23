@@ -67,8 +67,13 @@
   margin: 20px 0px;
 }
 .contact__details p {
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 10px 0px;
+}
+@media screen and (min-width: 970px) {
+  .contact__details p {
+    font-size: 3rem;
+  }
 }
 .contact__form {
   width: 100%;
